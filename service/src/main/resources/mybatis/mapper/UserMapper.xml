@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yk.user.mapper.UserMapper">
+
+    <select id="selectList"
+            parameterType="java.lang.String"
+            resultType="com.yk.user.domain.User">
+       select id,username,email
+         from tbUser
+         where 1=1
+          <if test="username != null">
+              and username = #{username,jdbcType=VARCHAR}
+          </if>
+    </select>
+
+</mapper>

@@ -1,0 +1,46 @@
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&useSSL=false
+    driver-class-name: com.mysql.jdbc.Driver
+
+
+  #邮箱基本配置
+  #根据实际情况修改配置，host，username，password 和 port
+  mail:
+    #配置smtp服务主机地址
+    host: smtp.qq.com #smtp.email-fake.com
+    #发送者邮箱
+    #https://email-fake.com/mudrovsasha@boranora.com
+    username: XXXXXXXXXXXX
+    #配置密码,注意不是真正的密码，而是刚刚申请到的授权码
+    password: XXXXXXXXXXXX
+    #端口号465或587
+    port: 587
+    #默认的邮件编码为UTF-8
+    default-encoding: UTF-8
+    #其他参数
+    properties:
+      mail:
+        #配置SSL 加密工厂
+        smtp:
+          ssl:
+            #本地测试，先放开ssl
+            enable: false
+            required: false
+          #开启debug模式，这样邮件发送过程的日志会在控制台打印出来，方便排查错误
+        debug: true
+
+
+mybatis:
+  mapper-locations: classpath:mybatis/mapper/*Mapper.xml
+  config-locations: classpath:mybatis/mybatis-config.xml
+  type-aliases-package: com.sprucetec.dataservice.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    use-generated-keys: true
+
+logging:
+  level:
+    com.yk.user.mapper: debug
